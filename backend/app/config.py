@@ -43,11 +43,13 @@ class Settings(BaseSettings):
     dev_login_code: str = ""
     dev_login_domain: str = "test.mystfinance.in"
 
-    mail_backend: Literal["console", "smtp"] = "console"
+    mail_backend: Literal["console", "smtp", "brevo"] = "console"
     smtp_host: str = "smtp.gmail.com"
     smtp_port: int = 587
     smtp_username: str = ""
     smtp_password: SecretStr = SecretStr("")
+    # Brevo transactional email over HTTPS (for hosts that block SMTP ports, e.g. Render's free plan).
+    brevo_api_key: SecretStr = SecretStr("")
     mail_from: str = "MYST Finance <no-reply@mystfinance.in>"
     support_email: str = "support@mystfinance.in"
 
@@ -97,8 +99,10 @@ class Settings(BaseSettings):
             problems.append("PII_ENCRYPTION_KEY must be set")
         if self.dev_login_code:
             problems.append("DEV_LOGIN_CODE must be empty")
-        if self.mail_backend != "smtp":
-            problems.append("MAIL_BACKEND must be 'smtp'")
+        if self.mail_backend == "console":
+            problems.append("MAIL_BACKEND must be 'smtp' or 'brevo'")
+        if self.mail_backend == "brevo" and not self.brevo_api_key.get_secret_value():
+            problems.append("BREVO_API_KEY must be set when MAIL_BACKEND=brevo")
         if self.payment_provider != "razorpay":
             problems.append("PAYMENT_PROVIDER must be 'razorpay'")
         if self.payment_provider == "razorpay" and not (

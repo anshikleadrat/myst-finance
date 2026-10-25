@@ -136,7 +136,7 @@ cd frontend && npm run gen:api
 | `SECRET_KEY` | backend | HMAC for OTPs and mock payment signatures |
 | `PII_ENCRYPTION_KEY` | backend | Fernet key for PAN. **Changing it makes stored PANs unreadable.** |
 | `SITE_URL`, `EXTRA_ALLOWED_ORIGINS` | backend | Allowed origins for state-changing requests; `https://` enables `Secure` cookies |
-| `MAIL_BACKEND`, `SMTP_*`, `MAIL_FROM` | backend | `smtp` + Gmail App Password in production |
+| `MAIL_BACKEND`, `SMTP_*`, `BREVO_API_KEY`, `MAIL_FROM` | backend | `smtp` (Gmail App Password) or `brevo` in production |
 | `PAYMENT_PROVIDER`, `RAZORPAY_*` | backend | Razorpay keys + webhook secret |
 | `ACCESS_FEE_PAISE` | backend | Fee (default 19900 = ₹199) |
 | `BUSINESS_NAME/ADDRESS/GSTIN`, `GST_RATE_PERCENT` | backend | Invoice details |
@@ -150,7 +150,8 @@ cd frontend && npm run gen:api
 3. Set `MAIL_BACKEND=smtp`, `SMTP_USERNAME=<gmail address>`, `SMTP_PASSWORD=<16-char app password>`,
    `MAIL_FROM="MYST Finance <same gmail address>"`.
 
-Gmail caps sending at roughly 500 messages/day; move to a transactional provider (SES, Resend, Postmark) by
+Render's free plan blocks outbound SMTP, so the live site uses `MAIL_BACKEND=brevo` (Brevo's HTTPS API,
+`BREVO_API_KEY`, sender = `MAIL_FROM` verified in Brevo). Gmail caps sending at roughly 500 messages/day; move to a transactional provider (SES, Resend, Postmark) by
 adding a class next to `SMTPMailer` in `backend/app/mailer.py` when volume grows.
 
 ### Razorpay
@@ -159,6 +160,25 @@ adding a class next to `SMTPMailer` in `backend/app/mailer.py` when volume grows
 2. Add a webhook to `https://<domain>/api/payments/webhook` for `payment.captured` and `order.paid`, and set
    `RAZORPAY_WEBHOOK_SECRET`.
 3. Razorpay KYC requires live Terms, Privacy, Refund and Contact pages — they exist at the routes above.
+
+## Deployment (Render)
+
+Live: **https://myst-finance-web.onrender.com** (API: https://myst-finance-api.onrender.com). Both are free-plan
+web services in Singapore built from `main` with auto-deploy on push.
+
+| Service | Root | Build | Start |
+|---|---|---|---|
+| `myst-finance-api` (Python 3.13 via `.python-version`, Render's built-in uv) | `backend` | `uv sync --frozen --no-dev` | `.venv/bin/alembic upgrade head && exec .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips '*'` |
+| `myst-finance-web` (Node 22) | `frontend` | `npm ci && npm run build` | `node .output/server/index.mjs` |
+
+- API env vars come from `backend/.env.prod` (not committed) plus `SITE_URL=https://myst-finance-web.onrender.com`.
+- Web env vars: `VITE_SITE_URL=https://myst-finance-web.onrender.com`, `API_INTERNAL_URL=https://myst-finance-api.onrender.com`.
+  The browser only talks to the web origin; its `/api/*` server route forwards to the API.
+- The database is shared with another app, so `DATABASE_SCHEMA=myst` keeps every MYST table (and
+  `alembic_version`) inside its own `myst` schema.
+- Free services sleep after ~15 min idle; the first request afterwards takes ~1 minute (both services wake).
+- Useful commands: `render deploys list <service-id>`, `render logs -r <service-id>`,
+  `render services update <service-id> --env-var KEY=value`.
 
 ## Deployment (single VPS)
 

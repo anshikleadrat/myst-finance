@@ -1,13 +1,16 @@
-"""Outgoing email. `console` logs messages (development); `smtp` sends via e.g. Gmail SMTP."""
+"""Outgoing email. `console` logs messages (development); `smtp` sends via e.g. Gmail SMTP;
+`brevo` sends through Brevo's HTTPS API (works where outbound SMTP ports are blocked)."""
 
 import logging
 import ssl
 from email.message import EmailMessage
+from email.utils import parseaddr
 from functools import lru_cache
 from typing import Protocol
 
 import aiosmtplib
 import certifi
+import httpx
 
 from app.config import get_settings
 
@@ -53,8 +56,39 @@ class SMTPMailer:
         log.info("smtp_email_sent to=%s subject=%r", to, subject)
 
 
+class BrevoMailer:
+    URL = "https://api.brevo.com/v3/smtp/email"
+
+    def __init__(self, transport: httpx.AsyncBaseTransport | None = None) -> None:
+        self._transport = transport
+
+    async def send(self, to: str, subject: str, text: str, reply_to: str | None = None) -> None:
+        settings = get_settings()
+        sender_name, sender_email = parseaddr(settings.mail_from)
+        payload: dict[str, object] = {
+            "sender": {"name": sender_name or settings.business_name, "email": sender_email},
+            "to": [{"email": to}],
+            "subject": subject,
+            "textContent": text,
+        }
+        if reply_to:
+            payload["replyTo"] = {"email": reply_to}
+        async with httpx.AsyncClient(transport=self._transport, timeout=15) as client:
+            response = await client.post(
+                self.URL, json=payload, headers={"api-key": settings.brevo_api_key.get_secret_value()}
+            )
+        if response.status_code >= 400:
+            raise RuntimeError(f"Brevo rejected the email: {response.status_code} {response.text[:200]}")
+        log.info("brevo_email_sent to=%s subject=%r", to, subject)
+
+
 def get_mailer() -> Mailer:
-    return SMTPMailer() if get_settings().mail_backend == "smtp" else ConsoleMailer()
+    backend = get_settings().mail_backend
+    if backend == "smtp":
+        return SMTPMailer()
+    if backend == "brevo":
+        return BrevoMailer()
+    return ConsoleMailer()
 
 
 _OTP_TEMPLATES = {
