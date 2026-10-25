@@ -150,8 +150,9 @@ cd frontend && npm run gen:api
 3. Set `MAIL_BACKEND=smtp`, `SMTP_USERNAME=<gmail address>`, `SMTP_PASSWORD=<16-char app password>`,
    `MAIL_FROM="MYST Finance <same gmail address>"`.
 
-Render's free plan blocks outbound SMTP, so the live site uses `MAIL_BACKEND=brevo` (Brevo's HTTPS API,
-`BREVO_API_KEY`, sender = `MAIL_FROM` verified in Brevo). Gmail caps sending at roughly 500 messages/day; move to a transactional provider (SES, Resend, Postmark) by
+Render's free plan blocks outbound SMTP ports 25/465/587, so the live site sends through Brevo's SMTP relay on
+port **2525** (`SMTP_HOST=smtp-relay.brevo.com`, `SMTP_PORT=2525`, Brevo SMTP login + key; `MAIL_FROM` must be a
+verified Brevo sender). `MAIL_BACKEND=brevo` (HTTPS API, needs an `xkeysib-` API key) is available as an alternative. Gmail caps sending at roughly 500 messages/day; move to a transactional provider (SES, Resend, Postmark) by
 adding a class next to `SMTPMailer` in `backend/app/mailer.py` when volume grows.
 
 ### Razorpay
