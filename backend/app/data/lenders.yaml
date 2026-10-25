@@ -1,0 +1,543 @@
+# MYST Finance lender directory (seed file).
+#
+# IMPORTANT: amounts, rates, fees and tenures below are INDICATIVE figures collected from
+# public sources and have NOT been verified. Every entry is `verified: false` until someone
+# checks it against the lender's official website / Key Fact Statement and updates
+# `verified` + `last_verified_on`. The site shows an "indicative" badge for unverified entries.
+#
+# Amounts are in rupees. Rates are annual (p.a.). Tenures are in months.
+# `features` and `documents` use fixed keys that the frontend translates.
+#   features:  quick_approval, minimal_documentation, flexible_repayment, online_process,
+#              credit_line, no_collateral, instant_disbursal, part_prepayment,
+#              for_self_employed, for_new_to_credit, gst_based_lending, gold_valuation,
+#              study_abroad
+#   documents: pan, aadhaar, bank_statement, salary_slips, photo, itr, gst_returns,
+#              business_proof, gold_items, admission_letter, address_proof, co_applicant_kyc
+
+- slug: moneytap
+  name: MoneyTap
+  category: personal
+  loan_type: personal
+  min_amount: 3000
+  max_amount: 500000
+  rate_min_pa: 13.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 2% + GST", hi: "2% + GST तक" }
+  tenure_min_months: 2
+  tenure_max_months: 36
+  website_url: https://www.moneytap.com/
+  features: [credit_line, quick_approval, flexible_repayment, online_process]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Quick personal loans and credit lines for salaried and self-employed individuals with minimal documentation.
+    hi: वेतनभोगी और स्वरोज़गार लोगों के लिए कम दस्तावेज़ों में तुरंत पर्सनल लोन और क्रेडिट लाइन।
+  about:
+    en: MoneyTap offers an app-based personal line of credit. You are approved for a limit and pay interest only on the amount you actually withdraw, which suits people who need funds in instalments rather than as a lump sum.
+    hi: MoneyTap ऐप-आधारित पर्सनल क्रेडिट लाइन देता है। आपको एक लिमिट स्वीकृत होती है और ब्याज केवल उतनी राशि पर लगता है जितनी आप निकालते हैं — यह उन लोगों के लिए उपयुक्त है जिन्हें एक साथ नहीं, बल्कि किश्तों में पैसे चाहिए।
+  verified: false
+
+- slug: cashe
+  name: CASHe
+  category: personal
+  loan_type: personal
+  min_amount: 5000
+  max_amount: 300000
+  rate_min_pa: 24.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 18
+  website_url: https://www.cashe.co.in/
+  features: [instant_disbursal, minimal_documentation, online_process, for_new_to_credit]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Short-term personal loans for salaried professionals, assessed on a social-and-salary based score.
+    hi: वेतनभोगी पेशेवरों के लिए अल्पकालिक पर्सनल लोन, जो सोशल और सैलरी-आधारित स्कोर पर आंका जाता है।
+  about:
+    en: CASHe focuses on young salaried professionals and uses its own scoring model in addition to the bureau score, so applicants with a thin credit history can still be considered.
+    hi: CASHe युवा वेतनभोगी पेशेवरों पर केंद्रित है और ब्यूरो स्कोर के साथ अपना स्कोरिंग मॉडल इस्तेमाल करता है, ताकि कम क्रेडिट इतिहास वाले आवेदकों पर भी विचार हो सके।
+  verified: false
+
+- slug: kreditbee
+  name: KreditBee
+  category: personal
+  loan_type: personal
+  min_amount: 1000
+  max_amount: 400000
+  rate_min_pa: 14.0
+  rate_max_pa: 29.95
+  processing_fee: { en: "Up to 6% + GST", hi: "6% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 24
+  website_url: https://www.kreditbee.in/
+  features: [instant_disbursal, minimal_documentation, online_process, for_self_employed]
+  documents: [pan, aadhaar, bank_statement]
+  tagline:
+    en: Small-ticket to mid-size personal loans with a fully digital application.
+    hi: पूरी तरह डिजिटल आवेदन के साथ छोटे से मध्यम आकार के पर्सनल लोन।
+  about:
+    en: KreditBee offers flexi personal loans for salaried and self-employed borrowers, with amounts starting very low, which makes it a common choice for first-time borrowers.
+    hi: KreditBee वेतनभोगी और स्वरोज़गार उधारकर्ताओं को फ्लेक्सी पर्सनल लोन देता है। बहुत कम राशि से शुरुआत होने के कारण यह पहली बार लोन लेने वालों में लोकप्रिय है।
+  verified: false
+
+- slug: nira-finance
+  name: Nira Finance
+  category: personal
+  loan_type: personal
+  min_amount: 5000
+  max_amount: 100000
+  rate_min_pa: 24.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 2% (min ₹350) + GST", hi: "2% तक (न्यूनतम ₹350) + GST" }
+  tenure_min_months: 3
+  tenure_max_months: 12
+  website_url: https://nirafinance.com/
+  features: [credit_line, quick_approval, online_process, for_new_to_credit]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Small credit lines for salaried workers earning modest incomes.
+    hi: कम आय वाले वेतनभोगी कर्मचारियों के लिए छोटी क्रेडिट लाइन।
+  about:
+    en: Nira provides small personal credit lines aimed at salaried employees, with a lower minimum income requirement than many larger lenders.
+    hi: Nira वेतनभोगी कर्मचारियों के लिए छोटी पर्सनल क्रेडिट लाइन देता है, और कई बड़े लेंडर्स की तुलना में न्यूनतम आय की शर्त कम रखता है।
+  verified: false
+
+- slug: incred-finance
+  name: InCred Finance
+  category: personal
+  loan_type: personal
+  min_amount: 10000
+  max_amount: 1000000
+  rate_min_pa: 16.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 4% + GST", hi: "4% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 60
+  website_url: https://www.incred.com/
+  features: [quick_approval, flexible_repayment, online_process, no_collateral]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Personal loans up to ₹10 lakh with longer tenures for salaried applicants.
+    hi: वेतनभोगी आवेदकों के लिए लंबी अवधि के साथ ₹10 लाख तक के पर्सनल लोन।
+  about:
+    en: InCred Finance is an RBI-registered NBFC offering unsecured personal loans with tenures of up to five years for medical, travel, education and other needs.
+    hi: InCred Finance एक RBI-पंजीकृत NBFC है जो चिकित्सा, यात्रा, शिक्षा और अन्य ज़रूरतों के लिए पाँच साल तक की अवधि वाले असुरक्षित पर्सनल लोन देता है।
+  verified: false
+
+- slug: fibe
+  name: Fibe
+  category: personal
+  loan_type: personal
+  min_amount: 5000
+  max_amount: 500000
+  rate_min_pa: 14.0
+  rate_max_pa: 30.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 36
+  website_url: https://www.fibe.in/
+  features: [instant_disbursal, online_process, flexible_repayment, part_prepayment]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Instant personal loans for young salaried professionals (formerly EarlySalary).
+    hi: युवा वेतनभोगी पेशेवरों के लिए तुरंत पर्सनल लोन (पहले EarlySalary)।
+  about:
+    en: Fibe, previously known as EarlySalary, offers app-based personal loans and salary advances with quick disbursal for salaried professionals in major cities.
+    hi: Fibe, जिसे पहले EarlySalary कहा जाता था, बड़े शहरों के वेतनभोगी पेशेवरों को ऐप-आधारित पर्सनल लोन और सैलरी एडवांस जल्दी वितरण के साथ देता है।
+  verified: false
+
+- slug: moneyview
+  name: Moneyview
+  category: personal
+  loan_type: personal
+  min_amount: 5000
+  max_amount: 1000000
+  rate_min_pa: 14.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "From 2% + GST", hi: "2% + GST से शुरू" }
+  tenure_min_months: 3
+  tenure_max_months: 60
+  website_url: https://moneyview.in/
+  features: [quick_approval, minimal_documentation, online_process, for_self_employed]
+  documents: [pan, aadhaar, bank_statement]
+  tagline:
+    en: Personal loans up to ₹10 lakh for salaried and self-employed applicants.
+    hi: वेतनभोगी और स्वरोज़गार आवेदकों के लिए ₹10 लाख तक के पर्सनल लोन।
+  about:
+    en: Moneyview uses its own credit-rating model to assess applicants, offering personal loans with a paperless process and tenures of up to five years.
+    hi: Moneyview आवेदकों को आंकने के लिए अपना क्रेडिट-रेटिंग मॉडल इस्तेमाल करता है और कागज़-रहित प्रक्रिया के साथ पाँच साल तक की अवधि वाले पर्सनल लोन देता है।
+  verified: false
+
+- slug: navi
+  name: Navi
+  category: personal
+  loan_type: personal
+  min_amount: 10000
+  max_amount: 2000000
+  rate_min_pa: 9.9
+  rate_max_pa: 45.0
+  processing_fee: { en: "Up to 6% + GST", hi: "6% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 84
+  website_url: https://navi.com/
+  features: [instant_disbursal, online_process, minimal_documentation, part_prepayment]
+  documents: [pan, aadhaar]
+  tagline:
+    en: Fully app-based personal loans up to ₹20 lakh.
+    hi: पूरी तरह ऐप-आधारित, ₹20 लाख तक के पर्सनल लोन।
+  about:
+    en: Navi Finserv offers personal loans through its app with an entirely digital journey, from eligibility check to disbursal.
+    hi: Navi Finserv अपने ऐप के ज़रिए पर्सनल लोन देता है, जिसमें पात्रता जाँच से लेकर वितरण तक पूरी प्रक्रिया डिजिटल है।
+  verified: false
+
+- slug: bajaj-finserv
+  name: Bajaj Finserv
+  category: personal
+  loan_type: personal
+  min_amount: 40000
+  max_amount: 5500000
+  rate_min_pa: 10.0
+  rate_max_pa: 31.0
+  processing_fee: { en: "Up to 3.93% (incl. taxes)", hi: "3.93% तक (करों सहित)" }
+  tenure_min_months: 12
+  tenure_max_months: 96
+  website_url: https://www.bajajfinserv.in/
+  features: [quick_approval, flexible_repayment, no_collateral, part_prepayment]
+  documents: [pan, aadhaar, bank_statement, salary_slips, photo]
+  tagline:
+    en: Large-ticket personal loans with long tenures from one of India's biggest NBFCs.
+    hi: भारत की सबसे बड़ी NBFC में से एक से लंबी अवधि वाले बड़े पर्सनल लोन।
+  about:
+    en: Bajaj Finance offers personal loans with high limits and a flexi-loan variant where you can withdraw and prepay within your sanctioned limit.
+    hi: Bajaj Finance ऊँची लिमिट वाले पर्सनल लोन देता है, साथ ही फ्लेक्सी-लोन विकल्प भी, जिसमें स्वीकृत लिमिट के भीतर निकासी और प्री-पेमेंट कर सकते हैं।
+  verified: false
+
+- slug: tata-capital
+  name: Tata Capital
+  category: personal
+  loan_type: personal
+  min_amount: 40000
+  max_amount: 3500000
+  rate_min_pa: 10.99
+  rate_max_pa: 30.0
+  processing_fee: { en: "Up to 3.5% + GST", hi: "3.5% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 72
+  website_url: https://www.tatacapital.com/
+  features: [quick_approval, flexible_repayment, no_collateral, part_prepayment]
+  documents: [pan, aadhaar, bank_statement, salary_slips, photo]
+  tagline:
+    en: Personal loans up to ₹35 lakh from the Tata Group's financial services arm.
+    hi: टाटा समूह की वित्तीय सेवा कंपनी से ₹35 लाख तक के पर्सनल लोन।
+  about:
+    en: Tata Capital offers personal loans for weddings, travel, medical needs and more, with tenures of up to six years.
+    hi: Tata Capital शादी, यात्रा, चिकित्सा और अन्य ज़रूरतों के लिए छह साल तक की अवधि वाले पर्सनल लोन देता है।
+  verified: false
+
+- slug: kissht
+  name: Kissht
+  category: personal
+  loan_type: personal
+  min_amount: 10000
+  max_amount: 400000
+  rate_min_pa: 14.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 4% + GST", hi: "4% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 24
+  website_url: https://kissht.com/
+  features: [instant_disbursal, online_process, for_new_to_credit, minimal_documentation]
+  documents: [pan, aadhaar, bank_statement]
+  tagline:
+    en: Instant personal loans and credit lines with a quick app-based process.
+    hi: तेज़ ऐप-आधारित प्रक्रिया के साथ तुरंत पर्सनल लोन और क्रेडिट लाइन।
+  about:
+    en: Kissht offers short-tenure personal loans and credit lines through its app, targeted at borrowers who need smaller amounts quickly.
+    hi: Kissht अपने ऐप के ज़रिए कम अवधि के पर्सनल लोन और क्रेडिट लाइन देता है, उन लोगों के लिए जिन्हें छोटी राशि जल्दी चाहिए।
+  verified: false
+
+- slug: stashfin
+  name: Stashfin
+  category: personal
+  loan_type: personal
+  min_amount: 1000
+  max_amount: 500000
+  rate_min_pa: 12.0
+  rate_max_pa: 48.0
+  processing_fee: { en: "Up to 4% + GST", hi: "4% + GST तक" }
+  tenure_min_months: 3
+  tenure_max_months: 36
+  website_url: https://www.stashfin.com/
+  features: [credit_line, instant_disbursal, online_process, flexible_repayment]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: App-based credit line you can draw from as and when you need it.
+    hi: ऐप-आधारित क्रेडिट लाइन, जिससे ज़रूरत पड़ने पर पैसे निकाल सकते हैं।
+  about:
+    en: Stashfin offers a revolving personal credit line with interest charged only on the amount used, along with fixed-tenure personal loans.
+    hi: Stashfin एक रिवॉल्विंग पर्सनल क्रेडिट लाइन देता है जिसमें ब्याज केवल इस्तेमाल की गई राशि पर लगता है, साथ ही तय अवधि वाले पर्सनल लोन भी।
+  verified: false
+
+- slug: hero-fincorp
+  name: Hero FinCorp
+  category: personal
+  loan_type: personal
+  min_amount: 50000
+  max_amount: 500000
+  rate_min_pa: 19.0
+  rate_max_pa: 36.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 36
+  website_url: https://www.herofincorp.com/
+  features: [quick_approval, minimal_documentation, online_process, no_collateral]
+  documents: [pan, aadhaar, bank_statement, salary_slips]
+  tagline:
+    en: Personal loans up to ₹5 lakh from the Hero Group's NBFC.
+    hi: हीरो समूह की NBFC से ₹5 लाख तक के पर्सनल लोन।
+  about:
+    en: Hero FinCorp offers instant personal loans with a digital application, aimed at salaried applicants across a wide network of cities.
+    hi: Hero FinCorp डिजिटल आवेदन के साथ तुरंत पर्सनल लोन देता है, जो कई शहरों के वेतनभोगी आवेदकों के लिए है।
+  verified: false
+
+- slug: aditya-birla-capital
+  name: Aditya Birla Capital
+  category: personal
+  loan_type: personal
+  min_amount: 50000
+  max_amount: 5000000
+  rate_min_pa: 11.99
+  rate_max_pa: 28.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 84
+  website_url: https://www.adityabirlacapital.com/
+  features: [quick_approval, flexible_repayment, no_collateral, part_prepayment]
+  documents: [pan, aadhaar, bank_statement, salary_slips, photo]
+  tagline:
+    en: High-value personal loans with tenures of up to seven years.
+    hi: सात साल तक की अवधि वाले बड़े पर्सनल लोन।
+  about:
+    en: Aditya Birla Finance offers personal loans for salaried and self-employed applicants, with higher limits for applicants with strong credit profiles.
+    hi: Aditya Birla Finance वेतनभोगी और स्वरोज़गार आवेदकों को पर्सनल लोन देता है, और मज़बूत क्रेडिट प्रोफ़ाइल वालों को ऊँची लिमिट मिलती है।
+  verified: false
+
+- slug: lendingkart
+  name: Lendingkart
+  category: business
+  loan_type: business
+  min_amount: 50000
+  max_amount: 10000000
+  rate_min_pa: 15.0
+  rate_max_pa: 27.0
+  processing_fee: { en: "Up to 2% + GST", hi: "2% + GST तक" }
+  tenure_min_months: 1
+  tenure_max_months: 36
+  website_url: https://www.lendingkart.com/
+  features: [no_collateral, for_self_employed, quick_approval, online_process]
+  documents: [pan, aadhaar, bank_statement, business_proof, gst_returns]
+  tagline:
+    en: Collateral-free working-capital loans for small businesses.
+    hi: छोटे व्यवसायों के लिए बिना गारंटी वर्किंग-कैपिटल लोन।
+  about:
+    en: Lendingkart provides unsecured business loans to MSMEs, using bank-statement and cash-flow analytics to assess eligibility.
+    hi: Lendingkart MSME को असुरक्षित बिज़नेस लोन देता है और पात्रता आंकने के लिए बैंक स्टेटमेंट और कैश-फ़्लो विश्लेषण का उपयोग करता है।
+  verified: false
+
+- slug: flexiloans
+  name: FlexiLoans
+  category: business
+  loan_type: business
+  min_amount: 50000
+  max_amount: 10000000
+  rate_min_pa: 12.0
+  rate_max_pa: 30.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 36
+  website_url: https://flexiloans.com/
+  features: [no_collateral, for_self_employed, gst_based_lending, online_process]
+  documents: [pan, aadhaar, bank_statement, gst_returns, business_proof]
+  tagline:
+    en: Unsecured business loans and lines of credit for MSMEs and online sellers.
+    hi: MSME और ऑनलाइन विक्रेताओं के लिए असुरक्षित बिज़नेस लोन और क्रेडिट लाइन।
+  about:
+    en: FlexiLoans offers term loans and business credit lines to small enterprises, including e-commerce sellers, with a digital application.
+    hi: FlexiLoans छोटे उद्यमों, जिनमें ई-कॉमर्स विक्रेता भी शामिल हैं, को डिजिटल आवेदन के साथ टर्म लोन और बिज़नेस क्रेडिट लाइन देता है।
+  verified: false
+
+- slug: indifi
+  name: Indifi
+  category: business
+  loan_type: business
+  min_amount: 100000
+  max_amount: 5000000
+  rate_min_pa: 15.0
+  rate_max_pa: 24.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 6
+  tenure_max_months: 36
+  website_url: https://www.indifi.com/
+  features: [no_collateral, for_self_employed, gst_based_lending, quick_approval]
+  documents: [pan, aadhaar, bank_statement, gst_returns, business_proof]
+  tagline:
+    en: Industry-specific business loans for retailers, restaurants, travel agents and more.
+    hi: खुदरा, रेस्तरां, ट्रैवल एजेंट और अन्य उद्योगों के लिए विशेष बिज़नेस लोन।
+  about:
+    en: Indifi tailors unsecured business loans to specific industries, using sector data and partner platforms to assess small businesses.
+    hi: Indifi विशिष्ट उद्योगों के अनुसार असुरक्षित बिज़नेस लोन देता है और छोटे व्यवसायों को आंकने के लिए सेक्टर डेटा और पार्टनर प्लेटफ़ॉर्म का उपयोग करता है।
+  verified: false
+
+- slug: neogrowth
+  name: NeoGrowth
+  category: business
+  loan_type: business
+  min_amount: 100000
+  max_amount: 7500000
+  rate_min_pa: 19.0
+  rate_max_pa: 30.0
+  processing_fee: { en: "Up to 3% + GST", hi: "3% + GST तक" }
+  tenure_min_months: 6
+  tenure_max_months: 36
+  website_url: https://www.neogrowth.in/
+  features: [no_collateral, for_self_employed, flexible_repayment, quick_approval]
+  documents: [pan, aadhaar, bank_statement, business_proof]
+  tagline:
+    en: Business loans for retailers repaid from daily card and digital sales.
+    hi: खुदरा व्यापारियों के लिए बिज़नेस लोन, जिसकी अदायगी रोज़ाना कार्ड और डिजिटल बिक्री से होती है।
+  about:
+    en: NeoGrowth lends to small retailers and merchants, assessing them on their digital payment collections and offering repayment options linked to sales.
+    hi: NeoGrowth छोटे खुदरा व्यापारियों को उनके डिजिटल भुगतान संग्रह के आधार पर लोन देता है और बिक्री से जुड़े भुगतान विकल्प देता है।
+  verified: false
+
+- slug: ugro-capital
+  name: UGRO Capital
+  category: business
+  loan_type: business
+  min_amount: 100000
+  max_amount: 10000000
+  rate_min_pa: 12.0
+  rate_max_pa: 24.0
+  processing_fee: { en: "Up to 2% + GST", hi: "2% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 84
+  website_url: https://www.ugrocapital.com/
+  features: [for_self_employed, flexible_repayment, gst_based_lending, quick_approval]
+  documents: [pan, aadhaar, bank_statement, gst_returns, itr, business_proof]
+  tagline:
+    en: Secured and unsecured loans for MSMEs across priority sectors.
+    hi: प्राथमिक क्षेत्रों के MSME के लिए सुरक्षित और असुरक्षित लोन।
+  about:
+    en: UGRO Capital is a listed NBFC focused on MSME lending, offering term loans, machinery loans and supply-chain finance.
+    hi: UGRO Capital एक सूचीबद्ध NBFC है जो MSME लोन पर केंद्रित है और टर्म लोन, मशीनरी लोन तथा सप्लाई-चेन फ़ाइनेंस देता है।
+  verified: false
+
+- slug: iifl-finance
+  name: IIFL Finance
+  category: business
+  loan_type: business
+  min_amount: 100000
+  max_amount: 3000000
+  rate_min_pa: 12.75
+  rate_max_pa: 30.0
+  processing_fee: { en: "2% – 4% + GST", hi: "2% – 4% + GST" }
+  tenure_min_months: 12
+  tenure_max_months: 60
+  website_url: https://www.iifl.com/
+  features: [no_collateral, for_self_employed, quick_approval, online_process]
+  documents: [pan, aadhaar, bank_statement, gst_returns, itr, business_proof]
+  tagline:
+    en: Unsecured business loans up to ₹30 lakh with a quick online process.
+    hi: तेज़ ऑनलाइन प्रक्रिया के साथ ₹30 लाख तक के असुरक्षित बिज़नेस लोन।
+  about:
+    en: IIFL Finance offers business loans to small and medium enterprises for working capital, expansion and equipment purchases.
+    hi: IIFL Finance छोटे और मध्यम उद्यमों को वर्किंग कैपिटल, विस्तार और उपकरण ख़रीद के लिए बिज़नेस लोन देता है।
+  verified: false
+
+- slug: muthoot-finance
+  name: Muthoot Finance
+  category: other
+  loan_type: gold
+  min_amount: 1500
+  max_amount: 10000000
+  rate_min_pa: 12.0
+  rate_max_pa: 27.0
+  processing_fee: { en: "Up to 1% + GST", hi: "1% + GST तक" }
+  tenure_min_months: 1
+  tenure_max_months: 36
+  website_url: https://www.muthootfinance.com/
+  features: [gold_valuation, instant_disbursal, minimal_documentation, flexible_repayment]
+  documents: [aadhaar, pan, gold_items, photo]
+  tagline:
+    en: Gold loans against jewellery with same-day disbursal at branches across India.
+    hi: पूरे भारत में शाखाओं पर उसी दिन वितरण के साथ गहनों पर गोल्ड लोन।
+  about:
+    en: Muthoot Finance is one of India's largest gold-loan NBFCs. The loan amount depends on the weight and purity of the gold you pledge.
+    hi: Muthoot Finance भारत की सबसे बड़ी गोल्ड-लोन NBFC में से एक है। लोन राशि गिरवी रखे सोने के वज़न और शुद्धता पर निर्भर करती है।
+  verified: false
+
+- slug: manappuram-finance
+  name: Manappuram Finance
+  category: other
+  loan_type: gold
+  min_amount: 1000
+  max_amount: 10000000
+  rate_min_pa: 9.9
+  rate_max_pa: 26.0
+  processing_fee: { en: "Up to 1% + GST", hi: "1% + GST तक" }
+  tenure_min_months: 1
+  tenure_max_months: 12
+  website_url: https://www.manappuram.com/
+  features: [gold_valuation, instant_disbursal, minimal_documentation, online_process]
+  documents: [aadhaar, pan, gold_items, photo]
+  tagline:
+    en: Gold loans at branches or from home, with flexible repayment schemes.
+    hi: शाखा पर या घर से गोल्ड लोन, लचीली भुगतान योजनाओं के साथ।
+  about:
+    en: Manappuram Finance offers gold loans through a large branch network and an online gold-loan option for existing customers.
+    hi: Manappuram Finance बड़े शाखा नेटवर्क के ज़रिए गोल्ड लोन देता है, और मौजूदा ग्राहकों के लिए ऑनलाइन गोल्ड-लोन विकल्प भी।
+  verified: false
+
+- slug: credila
+  name: Credila
+  category: other
+  loan_type: education
+  min_amount: 100000
+  max_amount: 10000000
+  rate_min_pa: 10.5
+  rate_max_pa: 14.0
+  processing_fee: { en: "Up to 1% + GST", hi: "1% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 180
+  website_url: https://www.credila.com/
+  features: [study_abroad, flexible_repayment, part_prepayment, quick_approval]
+  documents: [pan, aadhaar, admission_letter, co_applicant_kyc, bank_statement]
+  tagline:
+    en: Education loans for studies in India and abroad (formerly HDFC Credila).
+    hi: भारत और विदेश में पढ़ाई के लिए एजुकेशन लोन (पहले HDFC Credila)।
+  about:
+    en: Credila is a specialist education-loan NBFC that can sanction loans before admission is confirmed and covers tuition, living and travel costs.
+    hi: Credila एक विशेष एजुकेशन-लोन NBFC है जो प्रवेश की पुष्टि से पहले भी लोन स्वीकृत कर सकती है और ट्यूशन, रहने और यात्रा का ख़र्च कवर करती है।
+  verified: false
+
+- slug: avanse
+  name: Avanse Financial Services
+  category: other
+  loan_type: education
+  min_amount: 100000
+  max_amount: 10000000
+  rate_min_pa: 11.0
+  rate_max_pa: 16.0
+  processing_fee: { en: "Up to 2% + GST", hi: "2% + GST तक" }
+  tenure_min_months: 12
+  tenure_max_months: 180
+  website_url: https://www.avanse.com/
+  features: [study_abroad, flexible_repayment, quick_approval, online_process]
+  documents: [pan, aadhaar, admission_letter, co_applicant_kyc, itr]
+  tagline:
+    en: Education loans for undergraduate, postgraduate and overseas courses.
+    hi: स्नातक, स्नातकोत्तर और विदेशी पाठ्यक्रमों के लिए एजुकेशन लोन।
+  about:
+    en: Avanse is an education-focused NBFC offering loans for domestic and international study, including skill-development and executive programmes.
+    hi: Avanse एक शिक्षा-केंद्रित NBFC है जो देश और विदेश में पढ़ाई के लिए लोन देती है, जिसमें कौशल-विकास और एग्ज़ीक्यूटिव प्रोग्राम भी शामिल हैं।
+  verified: false
